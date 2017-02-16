@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Feb 15 18:13:03 PST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-015a-44b1-b992-00000896e758 
+on database directory /home/zhoulingyan/Documents/Eclipse-mars-Workspace/JFX/Sudoku/target/data.db with class loader sun.misc.Launcher$AppClassLoader@135fbaa4 
+Loaded from file:/home/zhoulingyan/Documents/Eclipse-mars-Workspace/JFX/Sudoku/target/lib/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_121-8u121-b13-2-b13
+user.dir=/home/zhoulingyan/Documents/Eclipse-mars-Workspace/JFX/Sudoku/target
+os.name=Linux
+os.arch=amd64
+os.version=4.9.0-1-amd64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
