@@ -1,6 +1,6 @@
 package lzhou.javafx.sudoku;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javafx.application.Application;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import lzhou.javafx.sudoku.controller.StagesController;
 
 public class MainApp extends Application {
-	private ApplicationContext applicationContext= null;
+	private AbstractApplicationContext applicationContext= null;
 	
 	public MainApp() {
 		applicationContext= null;
@@ -30,6 +30,7 @@ public class MainApp extends Application {
 	public void init() throws Exception {
 		super.init();
 		applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+		applicationContext.registerShutdownHook();
 	}
 
 	/**
