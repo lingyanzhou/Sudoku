@@ -56,6 +56,8 @@ The following xml condiguration enables Spring to search Spring beans in a packa
 
 * `@Component`, `@Repository`, `@Service`, `@Controller` tells Spring to manage the components. They are technically identical, but `@Repository` is typically for persistence layer, `@Service` for service layer and `@Controller` for MVC controllers.
 
+* The name of the bean defaults to the classname with its initial character changed to lowercase.
+
 ### Scope
 
 * Ref [Bean scopes](http://docs.spring.io/spring/docs/3.0.0.M3/reference/html/ch04s04.html)
@@ -74,7 +76,13 @@ The following xml condiguration enables Spring to search Spring beans in a packa
 
 ### Qualifier
 
-* Ref []()
+* By default, Spring autowiring selects bean by type.  `@Qualifier(val)` disambiguate different bean of the same type for autowiring.
+
+* Use `@Qualifier` with `@Component` ... to add a qualifier to a class. Use  `@Qualifier` with `@Autowired` to filter beans.
+
+* Qualifier may not be unique. It can be used to inject a list of beans with a specific qualifier.
+
+* If a bean is not declared with a qualifier, autowire autowiring will try to match the qualifier with the bean name as fallback.
 
 ### Common Exception
 
@@ -125,6 +133,18 @@ Solution:
     http://www.springframework.org/schema/data/jpa
     http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 ``` 
+
+### Bean Life Cycle Callback
+
+* XML configuration: Declare init, destroy methods with empty parameter and return value, and register them with `init-method`, `destroy-method` in XML.
+```
+<bean id="exampleBean" 
+         class="examples.ExampleBean" init-method="init" destroy-method="destruct"/>
+```
+
+* Implementing `DisposableBean` and `InitializingBean`.
+
+* For standalone applications, Spring `appcontext.registerShutdownHook()` should be called, to ensure destruct methods are called. For web application in containers, the call is not needed as the container can shutdown the application gracefully. 
 
 ## Spring Data JPA / Hibernate
 
